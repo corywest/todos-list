@@ -8,9 +8,9 @@ require 'debugger'
 
 case ARGV[0]
 when 'add'
-  @list_ctrl.create_task(ARGV[1..-1])
+  @list_ctrl.create_task(ARGV[1..-1].join(' '))
 when 'delete'
-  @list_ctrl.delete_task(ARGV[1..-1])
+  @list_ctrl.delete_task(ARGV[1..-1].join(' '))
 end
 
 @view.show_list(@list_ctrl.list_content)
