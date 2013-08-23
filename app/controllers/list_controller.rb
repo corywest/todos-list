@@ -16,7 +16,7 @@ class ListController
   end
 
   def delete_task(str)
-    @list.where(:content => str).destroy
+    @list.tasks.where(:content => str).destroy_all
   end
 
   def list_content
