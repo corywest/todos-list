@@ -1,3 +1,15 @@
 require_relative 'config/application'
 
 puts "Put your application code in #{File.expand_path(__FILE__)}"
+
+@list_ctrl = ListController.new
+@view = View.new
+
+case ARGV[0]
+when 'add'
+  @list_ctrl.create_task(ARGV[1..-1])
+when 'delete'
+  @list_ctrl.delete_task(ARGV[1..-1])
+end
+
+@view.show_list(@list_ctrl.list.tasks)
