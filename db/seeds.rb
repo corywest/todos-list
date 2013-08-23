@@ -12,9 +12,10 @@ module TodoSeed
           :content => Faker::Lorem.sentence(word_count = 4),
           :list_id => 1
         )
+      end
     end
   end
-
+  
   def self.import_list
     List.transaction do
       List.create!
