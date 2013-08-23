@@ -1,6 +1,7 @@
 require_relative 'config/application'
-
-puts "Put your application code in #{File.expand_path(__FILE__)}"
+require_relative 'app/controllers/list_controller'
+require 'debugger'
+# puts "Put your application code in #{File.expand_path(__FILE__)}"
 
 @list_ctrl = ListController.new
 @view = View.new
@@ -12,4 +13,4 @@ when 'delete'
   @list_ctrl.delete_task(ARGV[1..-1])
 end
 
-@view.show_list(@list_ctrl.list.tasks)
+@view.show_list(@list_ctrl.list_content)

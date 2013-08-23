@@ -1,21 +1,29 @@
-require_relative '../app/models/task'
-require_relative '../app/models/list'
+require_relative '../models/task'
+require_relative '../models/list'
+require 'debugger'
 
 class ListController
   attr_accessor :list
 
   def initialize
-    list = List.new
+    @list = List.first
   end
 
   def create_task(str)
-    list.tasks.create!(
+    @list.tasks.create!(
       :content => str
     )
   end
 
   def delete_task(id)
-    list.find(id).destroy
+    @list.find(id).destroy
   end
 
+  def list_content
+    content = []
+    @list.tasks.each do |t|
+      content << t.content
+    end
+    content
+  end
 end
